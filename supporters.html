@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Supporters - Blind Festival</title>
+    <!-- TODO: Replace 'float-1.png' with your actual logo filename -->
+    <link rel="icon" type="image/png" href="float-3.png">
+    <style>
+        /* CSS Variables */
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
+            --gray-mid: #999999;
+            --gray-dark: #333333;
+        }
+        
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #F5F5F7;
+            color: #1D1D1F;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 40px 20px;
+        }
+        
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 400;
+            color: #0047ab;
+            text-decoration: none;
+            margin-bottom: 40px;
+            transition: opacity 0.2s ease;
+        }
+        
+        .back-link:hover {
+            opacity: 0.7;
+        }
+        
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .page-title {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #1D1D1F;
+            margin: 0 0 16px 0;
+        }
+        
+        .page-subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            color: #86868B;
+            margin: 0;
+        }
+        
+        /* Main Container */
+        .main-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Supporters Container */
+        .supporters-container {
+            background: #FFFFFF;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Supporter Row */
+        .supporter-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            font-size: 17px;
+            font-weight: 400;
+            color: #1D1D1F;
+            border-bottom: 1px solid #E5E5EA;
+            background: #FFFFFF;
+            transition: background 0.2s ease;
+            cursor: default;
+        }
+        
+        .supporter-row:hover {
+            background: #F9F9FB;
+        }
+        
+        .row-number {
+            display: inline-block;
+            width: 28px;
+            margin-right: 8px;
+            color: #86868B;
+            font-variant-numeric: tabular-nums;
+            text-align: right;
+        }
+        
+        .supporter-name {
+            flex: 1;
+        }
+        
+        .supporter-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #F2F2F7;
+            color: #86868B;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 12px;
+            letter-spacing: 0.02em;
+        }
+        
+        .supporter-row:first-child {
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+        
+        .supporter-row:last-child {
+            border-bottom: none;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+        }
+        
+        /* Loading State */
+        .loading-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #86868B;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #E5E5EA;
+            border-top-color: #0047ab;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 12px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Error State */
+        .error-state {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .error-message {
+            color: #86868B;
+            margin-bottom: 20px;
+        }
+        
+        .retry-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #0047ab;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        
+        .retry-button:hover {
+            opacity: 0.8;
+        }
+        
+        .retry-button:active {
+            transform: scale(0.98);
+        }
+        
+        /* Enhanced Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 24px 16px;
+            }
+            
+            .back-link {
+                font-size: 15px;
+                margin-bottom: 24px;
+            }
+            
+            .header-section {
+                margin-bottom: 40px;
+            }
+            
+            .page-title {
+                font-size: 32px;
+                letter-spacing: -0.01em;
+                margin-bottom: 12px;
+            }
+            
+            .page-subtitle {
+                font-size: 17px;
+            }
+            
+            .main-container {
+                max-width: 100%;
+                padding: 0;
+            }
+            
+            .supporters-container {
+                border-radius: 12px;
+            }
+            
+            .supporter-row {
+                padding: 14px 16px;
+                font-size: 16px;
+                gap: 12px;
+                flex-wrap: nowrap;
+            }
+            
+            .supporter-name {
+                word-break: break-word;
+                overflow-wrap: break-word;
+                min-width: 0;
+                line-height: 1.4;
+            }
+            
+            .supporter-badge {
+                font-size: 12px;
+                padding: 4px 8px;
+                border-radius: 10px;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+            
+            .supporter-row:first-child {
+                border-top-left-radius: 12px;
+                border-top-right-radius: 12px;
+            }
+            
+            .supporter-row:last-child {
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;
+            }
+        }
+        
+        /* Extra small devices (phones in portrait) */
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+            
+            .back-link {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+            
+            .header-section {
+                margin-bottom: 32px;
+            }
+            
+            .page-title {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+            
+            .page-subtitle {
+                font-size: 16px;
+            }
+            
+            .supporters-container {
+                border-radius: 10px;
+            }
+            
+            .supporter-row {
+                padding: 12px 14px;
+                font-size: 15px;
+                gap: 10px;
+            }
+            
+            .supporter-badge {
+                font-size: 11px;
+                padding: 3px 7px;
+                border-radius: 8px;
+            }
+            
+            .supporter-row:first-child {
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+            
+            .supporter-row:last-child {
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+        }
+        
+        /* Mobile Performance Optimizations - Reduce lag & improve clarity */
+        @media (max-width: 768px) {
+            /* Disable heavy backdrop blur on mobile - major performance killer */
+            .back-link,
+            .supporter-row,
+            .loading-container,
+            .error-container {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+            
+            /* Simplify shadows - much lighter & faster to render */
+            .supporters-container {
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            }
+            
+            .supporter-row:hover {
+                box-shadow: none;
+                background: #F9F9FB;
+            }
+            
+            /* Reduce animation complexity for smoother performance */
+            .loading-spinner {
+                width: 32px;
+                height: 32px;
+                border-width: 2px;
+            }
+            
+            /* Faster transitions on mobile - less lag */
+            .supporter-row {
+                transition: background 0.15s ease;
+            }
+            
+            .back-link {
+                transition: opacity 0.15s ease;
+            }
+            
+            /* Disable expensive transforms on mobile */
+            .supporter-row:active {
+                transform: none;
+            }
+        }
+        
+        /* Respect user's motion preferences - accessibility & performance */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .loading-spinner {
+                animation: none;
+                border-top-color: #0047ab;
+                border-right-color: #0047ab;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Home</a>
+    
+    <div class="header-section">
+        <h1 class="page-title">OUR SUPPORTERS</h1>
+        <p class="page-subtitle">The people making this possible.</p>
+    </div>
+    
+    <div class="main-container">
+        <div id="supporters-list" class="supporters-container"></div>
+    </div>
+    
+    <script src="app.js"></script>
+    <script>
+        // Get container element
+        const container = document.getElementById('supporters-list');
+        
+        // Configuration
+        const MAX_RETRIES = 3;
+        const TIMEOUT_MS = 10000; // 10 seconds
+        const RETRY_DELAYS = [1000, 2000, 4000]; // Exponential backoff: 1s, 2s, 4s
+        const CACHE_MAX_AGE = 5 * 60 * 1000; // 5 minutes
+        const CACHE_KEY = 'supporters_cache';
+        
+        // Cache management
+        function getCachedData() {
+            try {
+                const cached = localStorage.getItem(CACHE_KEY);
+                if (!cached) return null;
+                
+                const { data, timestamp } = JSON.parse(cached);
+                const age = Date.now() - timestamp;
+                
+                // Return cache if less than 5 minutes old
+                if (age < CACHE_MAX_AGE) {
+                    return { data, age, fresh: age < 30000 }; // Fresh if < 30 seconds
+                }
+                return null;
+            } catch (e) {
+                console.warn('Cache read failed:', e);
+                return null;
+            }
+        }
+        
+        function setCachedData(supporters) {
+            try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify({
+                    data: supporters,
+                    timestamp: Date.now()
+                }));
+            } catch (e) {
+                console.warn('Cache write failed:', e);
+            }
+        }
+        
+        // Convert string to Title Case (e.g., "htan ml" -> "Htan Ml")
+        function toTitleCase(str) {
+            return str
+                .toLowerCase()
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+        }
+        
+        function renderSupporters(supporters) {
+            container.innerHTML = '';
+            supporters.forEach((supporter, index) => {
+                const row = document.createElement('div');
+                row.className = 'supporter-row';
+                
+                // Create row number element
+                const numberEl = document.createElement('span');
+                numberEl.className = 'row-number';
+                numberEl.textContent = `${index + 1}.`;
+                row.appendChild(numberEl);
+                
+                // Create name element
+                const nameEl = document.createElement('span');
+                nameEl.className = 'supporter-name';
+                nameEl.textContent = supporter.name;
+                row.appendChild(nameEl);
+                
+                // Create badge element if class exists
+                if (supporter.class && supporter.class.trim().length > 0) {
+                    const badgeEl = document.createElement('span');
+                    badgeEl.className = 'supporter-badge';
+                    badgeEl.textContent = supporter.class.trim();
+                    row.appendChild(badgeEl);
+                }
+                
+                container.appendChild(row);
+            });
+        }
+        
+        // Show loading state
+        function showLoading() {
+            container.innerHTML = `
+                <div class="loading-state">
+                    <div class="loading-spinner"></div>
+                    <div>Loading supporters...</div>
+                </div>
+            `;
+        }
+        
+        // Show error state with retry button
+        function showError(attemptNumber) {
+            const message = attemptNumber >= MAX_RETRIES 
+                ? 'Unable to load supporters. Please check your connection and try again.'
+                : `Loading failed. Retrying... (Attempt ${attemptNumber + 1}/${MAX_RETRIES})`;
+            
+            container.innerHTML = `
+                <div class="error-state">
+                    <div class="error-message">${message}</div>
+                    ${attemptNumber >= MAX_RETRIES ? '<button class="retry-button" onclick="loadSupporters()">Retry</button>' : ''}
+                </div>
+            `;
+        }
+        
+        // Fetch with timeout using AbortController + cache busting
+        async function fetchWithTimeout(url, timeoutMs) {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+            
+            // Add cache-busting timestamp to URL to force fresh data
+            const cacheBustUrl = url + (url.includes('?') ? '&' : '?') + 'nocache=' + Date.now();
+            
+            try {
+                const response = await fetch(cacheBustUrl, { 
+                    signal: controller.signal,
+                    cache: 'no-store', // Stronger: completely bypass cache
+                    headers: {
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache'
+                    }
+                });
+                clearTimeout(timeoutId);
+                return response;
+            } catch (error) {
+                clearTimeout(timeoutId);
+                throw error;
+            }
+        }
+        
+        // Sleep utility for retry delays
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        
+        // Async function to load and display supporters with cache-first strategy
+        async function loadSupporters(attemptNumber = 0, isBackgroundRefresh = false) {
+            // Check cache first
+            const cached = getCachedData();
+            
+            if (cached && !isBackgroundRefresh) {
+                // INSTANT LOAD: Show cached data immediately
+                console.log(`⚡ Instant load from cache (${Math.round(cached.age / 1000)}s old)`);
+                renderSupporters(cached.data);
+                
+                // If cache is fresh (< 30s), skip background refresh
+                if (cached.fresh) {
+                    console.log('✓ Cache is fresh, skipping refresh');
+                    return;
+                }
+                
+                // Start background refresh for stale cache
+                console.log('🔄 Cache shown, fetching fresh data in background...');
+                setTimeout(() => loadSupporters(0, true), 100);
+                return;
+            }
+            
+            // No cache or background refresh - fetch fresh data
+            if (!isBackgroundRefresh) {
+                showLoading();
+            }
+            
+            try {
+                if (!isBackgroundRefresh) {
+                    console.log(`Fetching supporters (attempt ${attemptNumber + 1}/${MAX_RETRIES})...`);
+                }
+                
+                // Fetch the CSV from Google Sheets with timeout
+                const response = await fetchWithTimeout(GOOGLE_SHEET_CSV_URL, TIMEOUT_MS);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                // Get the CSV text
+                const csvText = await response.text();
+                
+                // Validate CSV has content
+                if (!csvText || csvText.trim().length === 0) {
+                    throw new Error('Empty response from Google Sheets');
+                }
+                
+                // Parse CSV into array (skip header row, parse BOTH columns: Name + Class)
+                const supporters = csvText
+                    .split('\n')
+                    .slice(1)  // Skip first row (header: "Name,Class")
+                    .map(line => {
+                        const parts = line.split(',');
+                        const name = parts[0] ? parts[0].trim() : '';
+                        const classTag = parts[1] ? parts[1].trim() : '';
+                        return { 
+                            name: toTitleCase(name), 
+                            class: classTag 
+                        };
+                    })
+                    .filter(supporter => supporter.name.length > 0);
+                
+                // Validate we have supporters
+                if (supporters.length === 0) {
+                    throw new Error('No supporters found in spreadsheet');
+                }
+                
+                // NO DEDUPLICATION - Keep all duplicate names to reflect every purchase!
+                
+                // Sort alphabetically by name (case-insensitive A-Z)
+                supporters.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+                
+                // Cache the fresh data
+                setCachedData(supporters);
+                
+                // Render the supporters
+                renderSupporters(supporters);
+                
+                if (isBackgroundRefresh) {
+                    console.log(`✓ Background refresh complete (${uniqueSupporters.length} supporters)`);
+                } else {
+                    console.log(`✓ Successfully loaded ${uniqueSupporters.length} supporters`);
+                }
+                
+            } catch (error) {
+                console.error(`Error loading supporters (attempt ${attemptNumber + 1}/${MAX_RETRIES}):`, error);
+                
+                // If background refresh fails, silently keep showing cached data
+                if (isBackgroundRefresh) {
+                    console.warn('Background refresh failed, keeping cached data');
+                    return;
+                }
+                
+                // Retry logic for initial load
+                if (attemptNumber < MAX_RETRIES - 1) {
+                    showError(attemptNumber);
+                    const delay = RETRY_DELAYS[attemptNumber];
+                    await sleep(delay);
+                    return loadSupporters(attemptNumber + 1, false);
+                } else {
+                    // Max retries reached, show final error state
+                    showError(attemptNumber);
+                }
+            }
+        }
+        
+        // Load supporters when page loads
+        loadSupporters();
+    </script>
+</body>
+</html>
