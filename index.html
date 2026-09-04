@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLIND FESTIVAL</title>
+    <!-- TODO: Replace 'float-1.png' with your actual logo filename -->
+    <link rel="icon" type="image/png" href="float-3.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="nav-brand">
+                    <img src="float-1.png" alt="Logo" class="brand-logo">
+                    <span class="brand-text">BLIND FESTIVAL</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#the-boxes">The Boxes</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="supporters.html">Supporters</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <!-- Background Images for Hero Section:
+             Main Background: hero-background.jpg (JPG)
+             Transparent Overlay: hero-overlay.png (PNG)
+             Content Box Background: hero-content-bg.jpg (JPG) - semi-transparent behind text -->
+        
+        <!-- Transparent Background Overlay - TEMPORARILY DISABLED FOR TESTING -->
+        <!-- <div class="hero-transparent-bg"></div> -->
+        
+        <!-- Floating Decorative Images -->
+        <div class="floating-images">
+            <img src="float-1.png" alt="float-1.png" class="float-img float-1">
+            <img src="float-2.png" alt="float-2.png" class="float-img float-2">
+            <img src="float-3.png" alt="float-3.png" class="float-img float-3">
+            <img src="float-4.png" alt="float-4.png" class="float-img float-4">
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-tagline">Embrace the Mystery</p>
+                <h1 class="hero-title">BLIND FESTIVAL<br>MYANMAR 2026</h1>
+                <p class="hero-subtitle">Curated chaos. Unexpected discoveries. Limited editions.</p>
+                <div class="hero-cta">
+                    <button class="btn-primary"><span>VIEW YOUR BOX</span></button>
+                    <button class="btn-outline">EXPLORE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-box-open"></i>
+                    <h3>CURATED</h3>
+                    <p>Hand-selected items that define the culture</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>LIMITED</h3>
+                    <p>Limited drops. No restocks. Grab yours before they're gone.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <h3>COMMUNITY</h3>
+                    <p>Join the hype. Share your pulls. Connect with collectors.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>AUTHENTIC</h3>
+                    <p>Real products. Zero fakes. Every box guaranteed authentic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="the-boxes" class="product-showcase">
+        <div class="container">
+            <!-- Value Proposition -->
+            <div class="value-proposition">
+                <p class="value-eyebrow">RETAIL VALUE: 42,000 KYATS</p>
+                <h2 class="value-headline">The ultimate steal. Yours for as low as 5,000 Kyats.</h2>
+                <p class="value-subheadline">Skip the retail price. Grab a box for a fraction of the cost, test your luck to pull the limited edition festival shirt, and support a great cause.</p>
+            </div>
+
+
+            <h2 class="section-title">THE BOXES</h2>
+            <!-- Product Box Images -->
+            <div class="products-grid">
+                <div class="product-box" data-box="standard">
+                    <div class="product-image">
+                        <img src="blind-box-1.png" alt="blind-box-1.png">
+                        <div class="click-hint">CLICK TO REVEAL</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>KID EDITION</h3>
+                        <h4>3,000 Kyats</h4>
+                        <p class="shirt-value">Win shirts worth 42,000 Kyats</p>
+                        <p class="product-hook">Perfect for young collectors — toys, surprises, and a chance at limited edition gear</p>
+                    </div>
+                </div>
+                <div class="product-box" data-box="premium">
+                    <div class="product-image">
+                        <img src="blind-box-2.png" alt="blind-box-2.png">
+                        <div class="click-hint">CLICK TO REVEAL</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>PREMIUM EDITION</h3>
+                        <h4>15,000 Kyats</h4>
+                        <p class="shirt-value">Win shirts worth 42,000 Kyats</p>
+                        <p class="product-hook">Elevated rewards for the bold — premium prizes and an exclusive jackpot bundle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Dedications</h2>
+            <!-- Dynamic gallery grid - populated by gallery.js -->
+            <div id="dedications-grid" class="gallery-grid"></div>
+            <div class="gallery-button-container">
+                <button id="see-more-btn" class="see-more-btn">See More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-hidden">
+        <div class="lightbox-overlay"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+            <button id="lightbox-prev" class="lightbox-nav" aria-label="Previous image">❮</button>
+            <button id="lightbox-next" class="lightbox-nav" aria-label="Next image">❯</button>
+            <img id="lightbox-img" src="" alt="Dedication Photo">
+        </div>
+    </div>
+
+    <section id="contact" class="split-section">
+        <div class="container">
+            <div class="split-grid">
+                <div class="about-side">
+                    <h2>ABOUT</h2>
+                    
+                    <!-- About Image Container -->
+                    <div class="about-image-container">
+                        <div class="fallback-text">about-image.jpg</div>
+                        <img src="about-image.jpg" alt="about-image.jpg" class="borderless-img" onerror="this.style.display='none';">
+                    </div>
+                    
+                    <div class="about-text">
+                        <p>Blind Festival brings back the excitement of mystery. Pick a box, test your luck, and discover what's inside—from collectibles to limited merch. Everything's authentic, everything's worth more than the price, and every purchase supports our community. That's the deal.</p>
+                    </div>
+                </div>
+                <div class="contact-side">
+                    <h2>CONTACT</h2>
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_ENDPOINT_HERE">
+                        <div class="form-field">
+                            <input type="text" id="name" name="name" placeholder="NAME" required>
+                        </div>
+                        <div class="form-field">
+                            <input type="email" id="email" name="email" placeholder="EMAIL" required>
+                        </div>
+                        <div class="form-field">
+                            <textarea id="message" name="message" rows="4" placeholder="MESSAGE" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary"><span>SEND</span></button>
+                        <div id="form-success" style="display: none; color: #1D1D1F; margin-top: 16px; font-weight: 500; text-align: center;">Message sent successfully. We will be in touch.</div>
+                    </form>
+                    <div class="social-links">
+                        <p class="social-label">OR REACH US AT:</p>
+                        <a href="mailto:blindfestival67@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>blindfestival67@gmail.com</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@blindfestadteam67" class="social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-tiktok"></i>
+                            <span>@blindfestadteam67</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 BLIND FESTIVAL. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>
